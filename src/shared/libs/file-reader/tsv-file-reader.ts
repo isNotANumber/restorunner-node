@@ -19,7 +19,7 @@ export class TSVFileReader implements FileReader {
   private parseRawDataToOffers(): Offer[] {
     return this.rawData
       .split("\n")
-      .filter((row) => row.trim.length > 0)
+      .filter((row) => row.trim().length > 0)
       .map((line) => this.parseLineToOffer(line));
   }
 
@@ -72,11 +72,11 @@ export class TSVFileReader implements FileReader {
   }
 
   private parseGoods(goodsString: string): string[] {
-    return goodsString.split(";");
+    return goodsString.split("; ");
   }
 
   private parseImages(imagesString: string): string[] {
-    return imagesString.split(";");
+    return imagesString.split("; ");
   }
 
   private parseContacts(
