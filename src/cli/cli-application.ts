@@ -32,7 +32,7 @@ export class CLIApplication {
     return this.commands[this.defaultCommand];
   }
 
-  public parseCommand(argv: string[]): void {
+  public processCommand(argv: string[]): void {
     const parsedCommand = CommandParser.parse(argv);
     const [commandName] = Object.keys(parsedCommand);
     const command = this.getCommand(commandName);
