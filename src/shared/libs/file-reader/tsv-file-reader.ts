@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 
 import { FileReader } from "./file-reader.interface.js";
-import { OfferType, Location, Contacts } from "../../types/index.js";
+import { Offer, Location, Contacts } from "../../types/index.js";
 
 export class TSVFileReader implements FileReader {
   private rawData = "";
@@ -14,14 +14,14 @@ export class TSVFileReader implements FileReader {
     }
   }
 
-  private parseRawDataToOffers(): OfferType[] {
+  private parseRawDataToOffers(): Offer[] {
     return this.rawData
       .split("\n")
       .filter((row) => row.trim().length > 0)
       .map((line) => this.parseLineToOffer(line));
   }
 
-  private parseLineToOffer(line: string): OfferType {
+  private parseLineToOffer(line: string): Offer {
     const [
       id,
       title,
@@ -89,7 +89,7 @@ export class TSVFileReader implements FileReader {
     this.rawData = readFileSync(this.filename, { encoding: "utf8" });
   }
 
-  public toArray(): OfferType[] {
+  public toArray(): Offer[] {
     this.validateRawData();
     return this.parseRawDataToOffers();
   }
