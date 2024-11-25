@@ -1,134 +1,147 @@
 {
-  "id": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
-  "title": [
-    "Cozy Cafe in City Center",
-    "Luxury Restaurant",
-    "Charming Bar",
-    "Modern Fastfood Joint",
-    "Artisan Cafe",
-    "Fitness Bar",
-    "Local Fastfood Spot",
-    "Techie Cafe",
-    "Bookstore Cafe",
-    "Outdoor Restaurant"
-  ],
-  "type": [
-    "cafe",
-    "restaurant",
-    "bar",
-    "fastfood",
-    "cafe",
-    "bar",
-    "fastfood",
-    "cafe",
-    "cafe",
-    "restaurant"
-  ],
-  "price": [
-    "Average",
-    "Expensive",
-    "Cheap",
-    "Below Average",
-    "Average",
-    "Above Average",
-    "Cheap",
-    "Above Average",
-    "Cheap",
-    "Free"
-  ],
-  "latitude": [
-    56.8389, 56.84, 56.835, 56.842, 56.837, 56.836, 56.839, 56.834, 56.833,
-    56.831
-  ],
-  "longitude": [
-    60.6057, 60.61, 60.6105, 60.609, 60.6075, 60.606, 60.608, 60.611, 60.612,
-    60.613
-  ],
-  "zoom": [14, 15, 13, 16, 14, 12, 11, 15, 13, 10],
-  "isFavorite": [
-    true,
-    false,
-    true,
-    false,
-    true,
-    false,
-    true,
-    false,
-    true,
-    false
-  ],
-  "isPopular": [true, true, false, true, false, true, false, true, true, false],
-  "rating": [4.5, 3.8, 4.0, 4.9, 3.5, 4.2, 4.8, 3.9, 4.1, 4.7],
-  "description": [
-    "A cozy cafe located in the heart of the city, perfect for coffee lovers.",
-    "Experience luxury dining with a gourmet menu and exquisite ambiance.",
-    "A charming bar offering a wide selection of cocktails and live music.",
-    "Modern fastfood joint serving quick bites and delicious meals.",
-    "An artisan cafe known for its handcrafted beverages and pastries.",
-    "A fitness bar that serves healthy snacks and smoothies.",
-    "Local fastfood spot offering affordable and tasty meals.",
-    "A techie cafe with charging stations and a vibrant atmosphere.",
-    "A quiet bookstore cafe with a selection of books and light snacks.",
-    "An outdoor restaurant featuring a seasonal menu and beautiful views."
-  ],
-  "goods": [
-    "WiFi, Coffee, Snacks",
-    "Fine Dining, Wine, Desserts",
-    "Cocktails, Live Music",
-    "Burgers, Fries, Soft Drinks",
-    "Coffee, Pastries",
-    "Smoothies, Protein Bars",
-    "Burgers, Wraps, Drinks",
-    "Coffee, WiFi, Power Outlets",
-    "Books, Coffee, Pastries",
-    "Seasonal Menu, Outdoor Seating"
-  ],
-  "images": [
-    "cafe1.jpg",
-    "restaurant1.jpg",
-    "bar1.jpg",
-    "fastfood1.jpg",
-    "cafe2.jpg",
-    "bar2.jpg",
-    "fastfood2.jpg",
-    "cafe3.jpg",
-    "cafe4.jpg",
-    "restaurant2.jpg"
-  ],
-  "phone": [
-    "+7 123 456 7890",
-    "+7 123 456 7891",
-    "+7 123 456 7892",
-    "+7 123 456 7893",
-    "+7 123 456 7894",
-    "+7 123 456 7895",
-    "+7 123 456 7896",
-    "+7 123 456 7897",
-    "+7 123 456 7898",
-    "+7 123 456 7899"
-  ],
-  "email": [
-    "cafe@example.com",
-    "restaurant@example.com",
-    "bar@example.com",
-    "fastfood@example.com",
-    "cafe2@example.com",
-    "bar2@example.com ",
-    "fastfood2@example.com",
-    "cafe3@example.com",
-    "cafe4@example.com",
-    "restaurant2@example.com"
-  ],
-  "telegram": [
-    "@cafe",
-    "@restaurant",
-    "@bar",
-    "@fastfood",
-    "@cafe2",
-    "@bar2",
-    "@fastfood2",
-    "@cafe3",
-    "@cafe4",
-    "@restaurant2"
-  ]
+  "api": {
+    "id": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+    "title": [
+      "Cozy Cafe in City Center",
+      "Luxury Restaurant",
+      "Charming Bar",
+      "Modern Fastfood Joint",
+      "Artisan Cafe",
+      "Fitness Bar",
+      "Local Fastfood Spot",
+      "Techie Cafe",
+      "Bookstore Cafe",
+      "Outdoor Restaurant"
+    ],
+    "type": [
+      "cafe",
+      "restaurant",
+      "bar",
+      "fastfood",
+      "cafe",
+      "bar",
+      "fastfood",
+      "cafe",
+      "cafe",
+      "restaurant"
+    ],
+    "price": [
+      "Average",
+      "Expensive",
+      "Cheap",
+      "Below Average",
+      "Average",
+      "Above Average",
+      "Cheap",
+      "Above Average",
+      "Cheap",
+      "Free"
+    ],
+    "latitude": [
+      56.8389, 56.84, 56.835, 56.842, 56.837, 56.836, 56.839, 56.834, 56.833,
+      56.831
+    ],
+    "longitude": [
+      60.6057, 60.61, 60.6105, 60.609, 60.6075, 60.606, 60.608, 60.611, 60.612,
+      60.613
+    ],
+    "zoom": [14, 15, 13, 16, 14, 12, 11, 15, 13, 10],
+    "isFavorite": [
+      true,
+      false,
+      true,
+      false,
+      true,
+      false,
+      true,
+      false,
+      true,
+      false
+    ],
+    "isPopular": [
+      true,
+      true,
+      false,
+      true,
+      false,
+      true,
+      false,
+      true,
+      true,
+      false
+    ],
+    "rating": [4.5, 3.8, 4.0, 4.9, 3.5, 4.2, 4.8, 3.9, 4.1, 4.7],
+    "description": [
+      "A cozy cafe located in the heart of the city, perfect for coffee lovers.",
+      "Experience luxury dining with a gourmet menu and exquisite ambiance.",
+      "A charming bar offering a wide selection of cocktails and live music.",
+      "Modern fastfood joint serving quick bites and delicious meals.",
+      "An artisan cafe known for its handcrafted beverages and pastries.",
+      "A fitness bar that serves healthy snacks and smoothies.",
+      "Local fastfood spot offering affordable and tasty meals.",
+      "A techie cafe with charging stations and a vibrant atmosphere.",
+      "A quiet bookstore cafe with a selection of books and light snacks.",
+      "An outdoor restaurant featuring a seasonal menu and beautiful views."
+    ],
+    "goods": [
+      "WiFi, Coffee, Snacks",
+      "Fine Dining, Wine, Desserts",
+      "Cocktails, Live Music",
+      "Burgers, Fries, Soft Drinks",
+      "Coffee, Pastries",
+      "Smoothies, Protein Bars",
+      "Burgers, Wraps, Drinks",
+      "Coffee, WiFi, Power Outlets",
+      "Books, Coffee, Pastries",
+      "Seasonal Menu, Outdoor Seating"
+    ],
+    "images": [
+      "cafe1.jpg",
+      "restaurant1.jpg",
+      "bar1.jpg",
+      "fastfood1.jpg",
+      "cafe2.jpg",
+      "bar2.jpg",
+      "fastfood2.jpg",
+      "cafe3.jpg",
+      "cafe4.jpg",
+      "restaurant2.jpg"
+    ],
+    "phone": [
+      "+7 123 456 7890",
+      "+7 123 456 7891",
+      "+7 123 456 7892",
+      "+7 123 456 7893",
+      "+7 123 456 7894",
+      "+7 123 456 7895",
+      "+7 123 456 7896",
+      "+7 123 456 7897",
+      "+7 123 456 7898",
+      "+7 123 456 7899"
+    ],
+    "email": [
+      "cafe@example.com",
+      "restaurant@example.com",
+      "bar@example.com",
+      "fastfood@example.com",
+      "cafe2@example.com",
+      "bar2@example.com ",
+      "fastfood2@example.com",
+      "cafe3@example.com",
+      "cafe4@example.com",
+      "restaurant2@example.com"
+    ],
+    "telegram": [
+      "@cafe",
+      "@restaurant",
+      "@bar",
+      "@fastfood",
+      "@cafe2",
+      "@bar2",
+      "@fastfood2",
+      "@cafe3",
+      "@cafe4",
+      "@restaurant2"
+    ]
+  }
 }
