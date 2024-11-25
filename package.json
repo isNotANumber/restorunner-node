@@ -18,7 +18,8 @@
     "mock:server": "json-server ./mocks/mock-server-data.json --port 3123 --host localhost"
   },
   "dependencies": {
-    "got": "14.2.1"
+    "got": "14.2.1",
+    "pino": "9.0.0"
   },
   "devDependencies": {
     "@types/node": "20.12.7",
