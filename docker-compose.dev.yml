@@ -26,4 +26,4 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://${DB_USER}:${DB_PASSWORD}@db:${DB_PORT}/
 
 volumes:
-  buy-and-sell_data:
+  restorunner_data:
