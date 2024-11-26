@@ -6,7 +6,6 @@ export class TSVOfferGenerator implements OfferGenerator {
   constructor(private readonly mockData: MockServerData) {}
 
   public generate(): string {
-    const id = getRandomItem<string>(this.mockData.id);
     const title = getRandomItem<string>(this.mockData.title);
     const type = getRandomItem<string>(this.mockData.type);
     const price = getRandomItem<string>(this.mockData.price);
@@ -24,7 +23,6 @@ export class TSVOfferGenerator implements OfferGenerator {
     const telegram = getRandomItem<string>(this.mockData.telegram);
 
     return [
-      id,
       title,
       type,
       price,
