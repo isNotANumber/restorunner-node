@@ -18,6 +18,7 @@
     "mock:server": "json-server ./mocks/mock-server-data.json --port 3123 --host localhost"
   },
   "dependencies": {
+    "@typegoose/typegoose": "12.4.0",
     "convict": "6.2.4",
     "convict-format-with-validator": "6.2.0",
     "got": "14.2.1",
