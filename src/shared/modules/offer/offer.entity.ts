@@ -44,10 +44,10 @@ export class OfferEntity extends defaultClasses.TimeStamps {
   @prop({ trim: true })
   public description: string;
 
-  @prop({ type: () => [String] })
+  @prop({ trim: true, type: () => [String] })
   public goods: string[];
 
-  @prop({ type: () => [String] })
+  @prop({ trim: true, type: () => [String] })
   public images: string[];
 
   @prop()

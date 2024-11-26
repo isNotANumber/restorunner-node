@@ -35,9 +35,9 @@ export class TSVFileReader extends EventEmitter implements FileReader {
       type,
       price,
       location: this.parseLocation(latitude, longitude, zoom),
-      isFavorite: Boolean(isFavorite),
-      isPopular: Boolean(isPopular),
-      rating: parseInt(rating),
+      isFavorite: isFavorite === "true",
+      isPopular: isPopular === "true",
+      rating: this.parseRating(rating),
       description,
       goods: this.parseGoods(goods),
       images: this.parseImages(images),
@@ -51,18 +51,22 @@ export class TSVFileReader extends EventEmitter implements FileReader {
     zoom: string
   ): Location {
     return {
-      latitude: parseInt(latitude),
-      longitude: parseInt(longitude),
-      zoom: parseInt(zoom),
+      latitude: Number.parseFloat(latitude),
+      longitude: Number.parseFloat(longitude),
+      zoom: Number.parseInt(zoom, 10),
     };
   }
 
+  private parseRating(rating: string): number {
+    return Number.parseFloat(rating);
+  }
+
   private parseGoods(goodsString: string): string[] {
-    return goodsString.split("; ");
+    return goodsString.split(";");
   }
 
   private parseImages(imagesString: string): string[] {
-    return imagesString.split("; ");
+    return imagesString.split(";");
   }
 
   private parseContacts(
@@ -87,7 +91,7 @@ export class TSVFileReader extends EventEmitter implements FileReader {
       remainingData += chunk.toString();
 
       while ((nextLinePosition = remainingData.indexOf("\n")) >= 0) {
-        const completeRow = remainingData.slice(0, nextLinePosition + 1);
+        const completeRow = remainingData.slice(0, nextLinePosition);
         remainingData = remainingData.slice(++nextLinePosition);
         importedRowCount++;
 

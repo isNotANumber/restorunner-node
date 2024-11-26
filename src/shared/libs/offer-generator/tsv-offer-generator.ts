@@ -16,8 +16,8 @@ export class TSVOfferGenerator implements OfferGenerator {
     const isPopular = getRandomItem<boolean>(this.mockData.isPopular);
     const rating = getRandomItem<number>(this.mockData.rating);
     const description = getRandomItem<string>(this.mockData.description);
-    const goods = getRandomItems<string>(this.mockData.goods).join("; ");
-    const images = getRandomItems<string>(this.mockData.images).join("; ");
+    const goods = getRandomItems<string>(this.mockData.goods).join(";");
+    const images = getRandomItems<string>(this.mockData.images).join(";");
     const phone = getRandomItem<string>(this.mockData.phone);
     const email = getRandomItem<string>(this.mockData.email);
     const telegram = getRandomItem<string>(this.mockData.telegram);
