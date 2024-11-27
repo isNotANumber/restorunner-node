@@ -6,6 +6,8 @@ import { Component } from "../../types/index.js";
 import { Logger } from "../../libs/logger/index.js";
 import { OfferEntity } from "./offer.entity.js";
 import { CreateOfferDto } from "./dto/create-offer.dto.js";
+import { UpdateOfferDto } from "./dto/update-offer.dto.js";
+import { DEFAULT_OFFER_COUNT } from "./offer.constant.js";
 
 @injectable()
 export class DefaultOfferService implements OfferService {
@@ -26,5 +28,34 @@ export class DefaultOfferService implements OfferService {
     offerId: string
   ): Promise<DocumentType<OfferEntity> | null> {
     return this.offerModel.findById(offerId).exec();
+  }
+
+  public async find(): Promise<DocumentType<OfferEntity>[]> {
+    return this.offerModel.find().populate(["categories"]).exec();
+  }
+
+  public async findByCategoryId(
+    categoryId: string,
+    count?: number
+  ): Promise<DocumentType<OfferEntity>[]> {
+    const limit = count ?? DEFAULT_OFFER_COUNT;
+    return this.offerModel
+      .find({ category: categoryId }, {}, { limit })
+      .populate(["userId", "categories"])
+      .exec();
+  }
+
+  public async updateById(
+    offerId: string,
+    dto: UpdateOfferDto
+  ): Promise<DocumentType<OfferEntity> | null> {
+    return this.offerModel
+      .findByIdAndUpdate(offerId, dto, { new: true })
+      .populate(["userId", "categories"])
+      .exec();
+  }
+
+  public async exists(documentId: string): Promise<boolean> {
+    return (await this.offerModel.exists({ _id: documentId })) !== null;
   }
 }
