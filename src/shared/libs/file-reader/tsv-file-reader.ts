@@ -14,7 +14,7 @@ export class TSVFileReader extends EventEmitter implements FileReader {
   private parseLineToOffer(line: string): Offer {
     const [
       title,
-      type,
+      category,
       price,
       latitude,
       longitude,
@@ -32,7 +32,7 @@ export class TSVFileReader extends EventEmitter implements FileReader {
 
     return {
       title,
-      type,
+      category: this.parseCategory(category),
       price,
       location: this.parseLocation(latitude, longitude, zoom),
       isFavorite: isFavorite === "true",
@@ -43,6 +43,10 @@ export class TSVFileReader extends EventEmitter implements FileReader {
       images: this.parseImages(images),
       contacts: this.parseContacts(phone, email, telegram),
     };
+  }
+
+  private parseCategory(categoryString: string): { name: string } {
+    return { name: categoryString };
   }
 
   private parseLocation(
