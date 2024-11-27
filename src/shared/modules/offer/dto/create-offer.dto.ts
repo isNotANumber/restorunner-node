@@ -1,6 +1,6 @@
 export class CreateOfferDto {
   public title!: string;
-  public type!: string;
+  public category!: string;
   public price!: string;
   public latitude: number;
   public longitude: number;

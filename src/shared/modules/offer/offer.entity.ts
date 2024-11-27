@@ -3,7 +3,9 @@ import {
   getModelForClass,
   modelOptions,
   prop,
+  Ref,
 } from "@typegoose/typegoose";
+import { CategoryEntity } from "../category/index.js";
 
 export interface OfferEntity extends defaultClasses.Base {}
 
@@ -17,8 +19,13 @@ export class OfferEntity extends defaultClasses.TimeStamps {
   @prop({ trim: true, required: true })
   public title!: string;
 
-  @prop()
-  public type!: string;
+  @prop({
+    ref: CategoryEntity,
+    required: true,
+    default: "Cafe",
+    _id: false,
+  })
+  public category!: Ref<CategoryEntity>;
 
   @prop()
   public price!: string;

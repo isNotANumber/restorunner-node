@@ -1,9 +1,10 @@
 import { Contacts } from "./contacts.type.js";
 import { Location } from "./location.type.js";
+import { Category } from "./category.type.js";
 
 export type Offer = {
   title: string;
-  type: string;
+  category: Category;
   price: string;
   location: Location;
   isFavorite: boolean;
