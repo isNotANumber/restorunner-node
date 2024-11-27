@@ -9,6 +9,7 @@ import { UserService } from "./user-service.interface.js";
 import { Config, RestSchema } from "../../libs/config/index.js";
 import { fillDTO } from "../../helpers/index.js";
 import { UserRdo } from "./rdo/user.rdo.js";
+import { LoginUserRequest } from "./login-user-request.type.js";
 
 @injectable()
 export class UserController extends BaseController {
@@ -42,5 +43,18 @@ export class UserController extends BaseController {
       this.configService.get("SALT")
     );
     this.created(res, fillDTO(UserRdo, result));
+  }
+
+  public async login(
+    { body }: LoginUserRequest,
+    _res: Response
+  ): Promise<void> {
+    const existsUser = await this.userService.findByEmail(body.email);
+
+    if (!existsUser) {
+      throw new Error(`User with email ${body.email} not found.`);
+    }
+
+    throw new Error("Not implemented");
   }
 }
