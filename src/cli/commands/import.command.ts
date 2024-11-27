@@ -1,6 +1,11 @@
 import { Command } from "./command.interface.js";
 import { TSVFileReader } from "../../shared/libs/file-reader/index.js";
 import { Offer } from "../../shared/types/index.js";
+import {
+  CategoryModel,
+  CategoryService,
+  DefaultCategoryService,
+} from "../../shared/modules/category/index.js";
 import { getErrorMessage, getMongoURI } from "../../shared/helpers/index.js";
 import {
   DefaultOfferService,
@@ -17,6 +22,7 @@ import { DEFAULT_DB_PORT } from "./command.constant.js";
 
 export class ImportCommand implements Command {
   private offerService: OfferService;
+  private categoryService: CategoryService;
   private databaseClient: DatabaseClient;
   private logger: Logger;
 
@@ -26,6 +32,10 @@ export class ImportCommand implements Command {
 
     this.logger = new ConsoleLogger();
     this.offerService = new DefaultOfferService(this.logger, OfferModel);
+    this.categoryService = new DefaultCategoryService(
+      this.logger,
+      CategoryModel
+    );
     this.databaseClient = new MongoDatabaseClient(this.logger);
   }
 
@@ -39,9 +49,15 @@ export class ImportCommand implements Command {
   }
 
   private async saveOffer(offer: Offer) {
+    const category = offer.category;
+    const existCategory = await this.categoryService.findByCategoryNameOrCreate(
+      category.name,
+      { name: category.name }
+    );
+
     await this.offerService.create({
       title: offer.title,
-      type: offer.type,
+      category: existCategory.id,
       price: offer.price,
       latitude: offer.location.latitude,
       longitude: offer.location.longitude,
