@@ -10,4 +10,5 @@ export const Component = {
   CategoryService: Symbol.for("CategoryService"),
   CategoryModel: Symbol.for("CategoryModel"),
   CategoryController: Symbol.for("CategoryController"),
+  ExceptionFilter: Symbol.for("ExceptionFilter"),
 } as const;
