@@ -8,12 +8,21 @@ info:
     url: https://opensource.org/licenses/MIT
   version: 2.0.0
 tags:
+  - name: categories
+    description: Actions with categories.
   - name: offers
     description: Actions with offers.
   - name: users
     description: Actions with users.
 
 paths:
+  /categories:
+    get:
+      tags:
+        - categories
+      summary: Get all categories.
+      description: Get all offers categories.
+
   /offers:
     get:
       tags:
@@ -62,7 +71,6 @@ paths:
         - users
       summary: User register.
       description: Register a new user.
-
       requestBody:
         description: New user creation info.
         content:
@@ -107,7 +115,6 @@ components:
   schemas:
     createUser:
       type: object
-
       properties:
         email:
           type: string
@@ -127,7 +134,6 @@ components:
 
     user:
       type: object
-
       properties:
         id:
           type: string
