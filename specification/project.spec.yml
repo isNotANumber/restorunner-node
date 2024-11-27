@@ -1,0 +1,138 @@
+openapi: 3.1.0
+info:
+  title: API сервер для проекта «Restorunner».
+  description: |-
+    * Список ресурсов и маршрутов сервера «Restorunner».
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: 2.0.0
+tags:
+  - name: offers
+    description: Actions with offers.
+  - name: users
+    description: Actions with users.
+
+paths:
+  /offers:
+    get:
+      tags:
+        - offers
+      summary: Get all offers.
+      description: Get all offers.
+
+  /offers/{category}:
+    get:
+      tags:
+        - offers
+      summary: Get offers for one of category.
+      description: Get offers for one of category.
+
+  /offers/{offerId}:
+    get:
+      tags:
+        - offers
+      summary: Get offer description.
+      description: Get specified offer description by offerId.
+
+  /offers/favorites:
+    get:
+      tags:
+        - offers
+      summary: Get user favorites offers.
+      description: Get user favorites offers. Only for autorized users.
+
+  /offers/favorites/add/{offerId}:
+    patch:
+      tags:
+        - offers
+      summary: Add offer to favorites.
+      description: Add offer to favorites. Only for autorized users.
+
+  /offers/favorites/remove/{offerId}:
+    patch:
+      tags:
+        - offers
+      summary: Remove offer from favorites.
+      description: Remove offer from favorites. Only for autorized users.
+
+  /user/register:
+    post:
+      tags:
+        - users
+      summary: User register.
+      description: Register a new user.
+
+      requestBody:
+        description: New user creation info.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/createUser"
+        required: true
+
+      responses:
+        "201":
+          description: User registred. User object.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/user"
+
+        "409":
+          description: User with that email already registered.
+
+  /users/login:
+    post:
+      tags:
+        - users
+      summary: User authorization.
+      description: Authorize ueser by login and password.
+
+    get:
+      tags:
+        - users
+      summary: Check user state.
+      description: Returns autorized user state.
+
+  /users/{userId}/avatar:
+    post:
+      tags:
+        - users
+      summary: Upload user avatar image.
+      description: Upload user avatar image.
+        Image must be 'png' or 'jpg' format.
+
+components:
+  schemas:
+    createUser:
+      type: object
+
+      properties:
+        email:
+          type: string
+          example: test@test.com
+
+        firstname:
+          type: string
+          example: Test
+
+        lastname:
+          type: string
+          example: Testoff
+
+        password:
+          type: string
+          example: 111
+
+    user:
+      type: object
+
+      properties:
+        id:
+          type: string
+          example: 5123c1a5c12bc2215c6205ae
+
+        email:
+          type: string
+          example: test@test.com
