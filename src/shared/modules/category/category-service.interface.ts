@@ -15,4 +15,5 @@ export interface CategoryService {
     categoryName: string,
     dto: CreateCategoryDto
   ): Promise<DocumentType<CategoryEntity>>;
+  find(): Promise<DocumentType<CategoryEntity>[]>;
 }
