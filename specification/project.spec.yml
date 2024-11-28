@@ -23,6 +23,13 @@ paths:
       summary: Get all categories.
       description: Get all offers categories.
 
+  /categories/{categoryId}/offers/:
+    get:
+      tags:
+        - categories
+      summary: Get offers for one of category.
+      description: Get offers for one of category.
+
   /categories/{categoryId}/offers/quantity:
     get:
       tags:
@@ -36,13 +43,6 @@ paths:
         - offers
       summary: Get all offers.
       description: Get all offers.
-
-  /offers/{categoryId}:
-    get:
-      tags:
-        - offers
-      summary: Get offers for one of category.
-      description: Get offers for one of category.
 
   /offers/{offerId}:
     get:
