@@ -35,7 +35,10 @@ export class DefaultOfferService implements OfferService {
   }
 
   public async findFavorites(): Promise<DocumentType<OfferEntity>[]> {
-    return this.offerModel.find({ isFavorite: true }).exec();
+    return this.offerModel
+      .find({ isFavorite: true })
+      .populate(["category"])
+      .exec();
   }
 
   public async findByCategoryId(
