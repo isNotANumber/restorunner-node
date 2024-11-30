@@ -8,6 +8,7 @@ export interface OfferService {
   create(dto: CreateOfferDto): Promise<DocumentType<OfferEntity>>;
   findById(offerId: string): Promise<DocumentType<OfferEntity> | null>;
   find(): Promise<DocumentType<OfferEntity>[]>;
+  findFavorites(): Promise<DocumentType<OfferEntity>[]>;
   updateById(
     offerId: string,
     dto: UpdateOfferDto

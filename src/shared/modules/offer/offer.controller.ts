@@ -24,12 +24,17 @@ export default class OfferController extends BaseController {
     super(logger);
 
     this.logger.info("Register routes for OfferController");
+    this.addRoute({ path: "/", method: HttpMethod.Get, handler: this.index });
+    this.addRoute({
+      path: "/favorites",
+      method: HttpMethod.Get,
+      handler: this.getFavoritesOffers,
+    });
     this.addRoute({
       path: "/:offerId",
       method: HttpMethod.Get,
       handler: this.show,
     });
-    this.addRoute({ path: "/", method: HttpMethod.Get, handler: this.index });
     this.addRoute({
       path: "/:offerId",
       method: HttpMethod.Patch,
@@ -57,6 +62,11 @@ export default class OfferController extends BaseController {
 
   public async index(_req: Request, res: Response) {
     const offers = await this.offerService.find();
+    this.ok(res, fillDTO(OfferRdo, offers));
+  }
+
+  public async getFavoritesOffers(_req: Request, res: Response) {
+    const offers = await this.offerService.findFavorites();
     this.ok(res, fillDTO(OfferRdo, offers));
   }
 
