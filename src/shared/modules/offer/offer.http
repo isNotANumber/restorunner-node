@@ -1,4 +1,9 @@
 # Get offer by id
-GET http://localhost:3000/offers/62711a50b0e24a624d49ffdc HTTP/1.1
+GET http://localhost:3000/offers/674711baa3777934cb7ca231 HTTP/1.1
+
+###
+
+## Get offers list
+GET http://localhost:3000/offers HTTP/1.1
 
 ###

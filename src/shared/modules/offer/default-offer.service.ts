@@ -27,11 +27,11 @@ export class DefaultOfferService implements OfferService {
   public async findById(
     offerId: string
   ): Promise<DocumentType<OfferEntity> | null> {
-    return this.offerModel.findById(offerId).populate(["categories"]).exec();
+    return this.offerModel.findById(offerId).populate(["category"]).exec();
   }
 
   public async find(): Promise<DocumentType<OfferEntity>[]> {
-    return this.offerModel.find().populate(["categories"]).exec();
+    return this.offerModel.find().populate(["category"]).exec();
   }
 
   public async findByCategoryId(
@@ -41,7 +41,7 @@ export class DefaultOfferService implements OfferService {
     const limit = count ?? DEFAULT_OFFER_COUNT;
     return this.offerModel
       .find({ category: categoryId }, {}, { limit })
-      .populate(["userId", "categories"])
+      .populate(["category"])
       .exec();
   }
 
@@ -51,7 +51,7 @@ export class DefaultOfferService implements OfferService {
   ): Promise<DocumentType<OfferEntity> | null> {
     return this.offerModel
       .findByIdAndUpdate(offerId, dto, { new: true })
-      .populate(["userId", "categories"])
+      .populate(["category"])
       .exec();
   }
 
