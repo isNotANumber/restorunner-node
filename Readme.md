@@ -21,6 +21,7 @@
 - После сборки проекта:
 - NOTE: моковые данные уже сгенерированы и лежат в `test-data.tsv`, для работы достаточно импортировать их в монгу командой `--import`, подробности ниже.
 - Поднять json-сервер для имитации получения данных извне: `npm run mock:server`;
+- NOTE: если одна из команд ниже отказывается запускаться из-за нехватки прав, проставляем их: `chmod u+x ./dist/main.cli.js`;
 - `./dist/main.cli.js --help` - список доступных команд;
 - `./dist/main.cli.js --generate *n* ./mocks/test-data.tsv *url*` - генерация n строк моковых данных, где `url` - адрес json-сервера;
 - `./dist/main.cli.js --import mocks/test-data.tsv *db_username* *db_password* *db_ip* *tablename*` - импорт сгенерированных данных в монгу;
