@@ -12,18 +12,7 @@
       "Bookstore Cafe",
       "Outdoor Restaurant"
     ],
-    "type": [
-      "cafe",
-      "restaurant",
-      "bar",
-      "fastfood",
-      "cafe",
-      "bar",
-      "fastfood",
-      "cafe",
-      "cafe",
-      "restaurant"
-    ],
+    "type": ["Cafe", "Restaurant", "Bar", "FastFood"],
     "price": [
       "Average",
       "Expensive",
