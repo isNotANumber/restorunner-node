@@ -31,7 +31,12 @@ export class CategoryController extends BaseController {
       path: "/:categoryId/offers",
       method: HttpMethod.Get,
       handler: this.getOffersFromCategory,
-    });
+    }),
+      this.addRoute({
+        path: "/:categoryId/offers/quantity",
+        method: HttpMethod.Get,
+        handler: this.getOffersQuantityFromCategory,
+      });
   }
 
   public async index(_req: Request, res: Response): Promise<void> {
@@ -49,5 +54,16 @@ export class CategoryController extends BaseController {
       query.limit
     );
     this.ok(res, fillDTO(OfferRdo, offers));
+  }
+
+  public async getOffersQuantityFromCategory(
+    { params, query }: Request<ParamCategoryId, unknown, unknown, RequestQuery>,
+    res: Response
+  ): Promise<void> {
+    const offers = await this.offerService.findByCategoryId(
+      params.categoryId,
+      query.limit
+    );
+    this.ok(res, fillDTO(OfferRdo, offers.length));
   }
 }

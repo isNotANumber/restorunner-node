@@ -7,6 +7,14 @@ Content-Type: application/json
 
 ## Offers list by categoryId
 
-GET http://localhost:3000/categories/674711baa3777934cb7ca22f/offers?limit=10 HTTP/1.1
+GET http://localhost:3000/categories/674b057271f9a523826d26ce/offers?limit=10 HTTP/1.1
+Content-Type: application/json
+
+###
+
+## Offers quanity by categoryId
+
+GET http://localhost:3000/categories/674b057271f9a523826d26ce/offers/quantity HTTP/1.1
+Content-Type: application/json
 
 ###
