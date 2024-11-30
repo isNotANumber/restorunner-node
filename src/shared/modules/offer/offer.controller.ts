@@ -13,6 +13,7 @@ import { Component } from "../../types/index.js";
 import { Logger } from "../../libs/logger/index.js";
 import { fillDTO } from "../../helpers/index.js";
 import { OfferRdo } from "./rdo/offer.rdo.js";
+import { UpdateOfferDto } from "./dto/update-offer.dto.js";
 
 @injectable()
 export default class OfferController extends BaseController {
@@ -29,6 +30,11 @@ export default class OfferController extends BaseController {
       handler: this.show,
     });
     this.addRoute({ path: "/", method: HttpMethod.Get, handler: this.index });
+    this.addRoute({
+      path: "/:offerId",
+      method: HttpMethod.Patch,
+      handler: this.update,
+    });
   }
 
   public async show(
@@ -52,5 +58,25 @@ export default class OfferController extends BaseController {
   public async index(_req: Request, res: Response) {
     const offers = await this.offerService.find();
     this.ok(res, fillDTO(OfferRdo, offers));
+  }
+
+  public async update(
+    { body, params }: Request<ParamOfferId, unknown, UpdateOfferDto>,
+    res: Response
+  ): Promise<void> {
+    const updatedOffer = await this.offerService.updateById(
+      params.offerId,
+      body
+    );
+
+    if (!updatedOffer) {
+      throw new HttpError(
+        StatusCodes.NOT_FOUND,
+        `Offer with id ${params.offerId} not found.`,
+        "OfferController"
+      );
+    }
+
+    this.ok(res, fillDTO(OfferRdo, updatedOffer));
   }
 }

@@ -7,3 +7,13 @@ GET http://localhost:3000/offers/674711baa3777934cb7ca231 HTTP/1.1
 GET http://localhost:3000/offers HTTP/1.1
 
 ###
+
+## Update offer
+PATCH http://localhost:3000/offers/674711baa3777934cb7ca231 HTTP/1.1
+Content-Type: application/json
+
+{
+  "isFavorite": false
+}
+
+###
