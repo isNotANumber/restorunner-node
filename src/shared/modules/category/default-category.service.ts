@@ -23,12 +23,6 @@ export class DefaultCategoryService implements CategoryService {
     return result;
   }
 
-  public async findByCategoryId(
-    categoryId: string
-  ): Promise<DocumentType<CategoryEntity> | null> {
-    return this.categoryModel.findById(categoryId).exec();
-  }
-
   public async findByCategoryName(
     categoryName: string
   ): Promise<DocumentType<CategoryEntity> | null> {

@@ -1,8 +1,8 @@
 openapi: 3.1.0
 info:
-  title: API сервер для проекта «Restorunner».
+  title: API server for «Restorunner» project.
   description: |-
-    * Список ресурсов и маршрутов сервера «Restorunner».
+    * Resourses and routes list for «Restorunner» server.
   license:
     name: MIT
     url: https://opensource.org/licenses/MIT
@@ -23,33 +23,12 @@ paths:
       summary: Get all categories.
       description: Get all offers categories.
 
-  /categories/{categoryId}/offers/:
-    get:
-      tags:
-        - categories
-      summary: Get offers for one of category.
-      description: Get offers for one of category.
-
-  /categories/{categoryId}/offers/quantity:
-    get:
-      tags:
-        - categories
-      summary: Get the number of offers in a category.
-      description: Get the number of offers in a category.
-
   /offers:
     get:
       tags:
         - offers
       summary: Get all offers.
       description: Get all offers.
-
-  /offers/{offerId}:
-    get:
-      tags:
-        - offers
-      summary: Get offer description.
-      description: Get specified offer description by offerId.
 
   /offers/favorites:
     get:

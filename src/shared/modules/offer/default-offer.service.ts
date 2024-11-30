@@ -7,7 +7,6 @@ import { Logger } from "../../libs/logger/index.js";
 import { OfferEntity } from "./offer.entity.js";
 import { CreateOfferDto } from "./dto/create-offer.dto.js";
 import { UpdateOfferDto } from "./dto/update-offer.dto.js";
-import { DEFAULT_OFFER_COUNT } from "./offer.constant.js";
 
 @injectable()
 export class DefaultOfferService implements OfferService {
@@ -37,17 +36,6 @@ export class DefaultOfferService implements OfferService {
   public async findFavorites(): Promise<DocumentType<OfferEntity>[]> {
     return this.offerModel
       .find({ isFavorite: true })
-      .populate(["category"])
-      .exec();
-  }
-
-  public async findByCategoryId(
-    categoryId: string,
-    count?: number
-  ): Promise<DocumentType<OfferEntity>[]> {
-    const limit = count ?? DEFAULT_OFFER_COUNT;
-    return this.offerModel
-      .find({ category: categoryId }, {}, { limit })
       .populate(["category"])
       .exec();
   }
