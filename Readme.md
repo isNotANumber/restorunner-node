@@ -30,6 +30,7 @@
 
 - Запуск в dev режиме: `npm run start:dev` (автоматический перезапуск после изменений кода в src);
 - Запуск: `npm run start`;
+- После можно собирать и запускать фронт: [here](https://github.com/isNotANumber/restorunner).
 
 ---
 
