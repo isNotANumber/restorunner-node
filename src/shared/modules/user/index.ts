@@ -6,3 +6,4 @@ export { UserService } from "./user-service.interface.js";
 export { DefaultUserService } from "./default-user.service.js";
 export { createUserContainer } from "./user.container.js";
 export { UserController } from "./user.controller.js";
+export { DEFAULT_AVATAR_FILE_NAME } from "./user.constant.js";
