@@ -38,10 +38,10 @@ Content-Type: image/png
 < /Users/spider_net/Desktop/test.png
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 
-##
+###
 
 ## Check user token
 GET http://localhost:3000/users/login HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRvcmFuc0BvdmVybG9vay5uZXQiLCJpZCI6IjY0NzBiYzM4M2UzMGRiNjc5ZGZhYzJkMiIsImlhdCI6MTY4NTk3NTQ4MiwiZXhwIjoxNjg2MTQ4MjgyfQ.Gq2-B1egouAnMxmXlR2ElVT6wCa97PS6lxzVI8LnGvo
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJmaXJzdG5hbWUiOiJUZXN0IiwibGFzdG5hbWUiOiJUZXN0b3YiLCJpZCI6IjY3NDc2Mjk1NzBjOWM0OGRiYjJmYzA0YiIsImlhdCI6MTczMzE3MzU1OCwiZXhwIjoxNzMzNDMyNzU4fQ.Ps23LHLVkqypxPc2dNg7dbsM85zKAc1U7zikfEFP1DE
 
 ###
