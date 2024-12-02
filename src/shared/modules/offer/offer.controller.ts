@@ -7,6 +7,7 @@ import { ParamOfferId } from "./type/param-offerid.type.js";
 import {
   BaseController,
   HttpError,
+  ValidateObjectIdMiddleware,
   HttpMethod,
 } from "../../libs/rest/index.js";
 import { Component } from "../../types/index.js";
@@ -34,11 +35,13 @@ export default class OfferController extends BaseController {
       path: "/:offerId",
       method: HttpMethod.Get,
       handler: this.show,
+      middlewares: [new ValidateObjectIdMiddleware("offerId")],
     });
     this.addRoute({
       path: "/:offerId",
       method: HttpMethod.Patch,
       handler: this.update,
+      middlewares: [new ValidateObjectIdMiddleware("offerId")],
     });
   }
 
