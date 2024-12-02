@@ -7,6 +7,7 @@ import {
   BaseController,
   DocumentExistsMiddleware,
   ValidateObjectIdMiddleware,
+  PrivateRouteMiddleware,
   HttpMethod,
 } from "../../libs/rest/index.js";
 import { Component } from "../../types/index.js";
@@ -29,6 +30,7 @@ export default class OfferController extends BaseController {
       path: "/favorites",
       method: HttpMethod.Get,
       handler: this.getFavoritesOffers,
+      middlewares: [new PrivateRouteMiddleware()],
     });
     this.addRoute({
       path: "/:offerId",
