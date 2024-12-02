@@ -1,12 +1,11 @@
 import { inject, injectable } from "inversify";
 import { Request, Response } from "express";
-import { StatusCodes } from "http-status-codes";
 
 import { OfferService } from "./offer-service.interface.js";
 import { ParamOfferId } from "./type/param-offerid.type.js";
 import {
   BaseController,
-  HttpError,
+  DocumentExistsMiddleware,
   ValidateObjectIdMiddleware,
   HttpMethod,
 } from "../../libs/rest/index.js";
@@ -35,13 +34,19 @@ export default class OfferController extends BaseController {
       path: "/:offerId",
       method: HttpMethod.Get,
       handler: this.show,
-      middlewares: [new ValidateObjectIdMiddleware("offerId")],
+      middlewares: [
+        new ValidateObjectIdMiddleware("offerId"),
+        new DocumentExistsMiddleware(this.offerService, "Offer", "offerId"),
+      ],
     });
     this.addRoute({
       path: "/:offerId",
       method: HttpMethod.Patch,
       handler: this.update,
-      middlewares: [new ValidateObjectIdMiddleware("offerId")],
+      middlewares: [
+        new ValidateObjectIdMiddleware("offerId"),
+        new DocumentExistsMiddleware(this.offerService, "Offer", "offerId"),
+      ],
     });
   }
 
@@ -51,14 +56,6 @@ export default class OfferController extends BaseController {
   ): Promise<void> {
     const { offerId } = params;
     const offer = await this.offerService.findById(offerId);
-
-    if (!offer) {
-      throw new HttpError(
-        StatusCodes.NOT_FOUND,
-        `Offer with id ${offerId} not found.`,
-        "OfferController"
-      );
-    }
 
     this.ok(res, fillDTO(OfferRdo, offer));
   }
@@ -81,14 +78,6 @@ export default class OfferController extends BaseController {
       params.offerId,
       body
     );
-
-    if (!updatedOffer) {
-      throw new HttpError(
-        StatusCodes.NOT_FOUND,
-        `Offer with id ${params.offerId} not found.`,
-        "OfferController"
-      );
-    }
 
     this.ok(res, fillDTO(OfferRdo, updatedOffer));
   }
