@@ -74,7 +74,7 @@ export class RestApplication {
 
   private async _initControllers() {
     this.server.use("/categories", this.categoryController.router);
-    this.server.use("/users", this.userController.router);
+    this.server.use("/user", this.userController.router);
     this.server.use("/offers", this.offerController.router);
   }
 

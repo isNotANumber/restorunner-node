@@ -76,7 +76,7 @@ paths:
         "409":
           description: User with that email already registered.
 
-  /users/login:
+  /user/login:
     post:
       tags:
         - users
@@ -89,7 +89,7 @@ paths:
       summary: Check user state.
       description: Returns autorized user state.
 
-  /users/{userId}/avatar:
+  /user/{userId}/avatar:
     post:
       tags:
         - users
